@@ -13,11 +13,14 @@ public class WatchDir {
 	private boolean trace = false;
 	private int count;
 	
+	
+	@SuppressWarnings("unchecked")
 	static <T> WatchEvent<T> cast(WatchEvent<?> event) {
 		return (WatchEvent<T>) event;
 	}
 	
 	private void register(Path dir) throws IOException {
+		@SuppressWarnings("unused")
 		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
 		count++;
 		if (trace)
@@ -65,7 +68,8 @@ public class WatchDir {
             }
 
             for (WatchEvent<?> event: key.pollEvents()) {
-                WatchEvent.Kind kind = event.kind();
+                @SuppressWarnings("rawtypes")
+				WatchEvent.Kind kind = event.kind();
 
                 // TBD - provide example of how OVERFLOW event is handled
                 if (kind == OVERFLOW) {
