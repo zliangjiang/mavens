@@ -9,6 +9,8 @@ public class Test {
 		System.out.println(System.getProperty("file.encoding"));
 		String text = "大家好";
 		System.out.println(text); 
+		boolean[] t = new boolean[10];
+		System.out.println(t.length+" ");
 		
 	}
 
