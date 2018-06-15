@@ -7,7 +7,7 @@ public class Singleton {
 	
 	private Singleton() {}
 	
-	public static Singleton GetInstance() {
+	public static Singleton getInstance() {
 		if(instance == null) {
 			synchronized(lock) {
 				if(instance == null) {

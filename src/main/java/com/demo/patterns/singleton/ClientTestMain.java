@@ -4,11 +4,11 @@ public class ClientTestMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Singleton s1 = Singleton.GetInstance();
+		Singleton s1 = Singleton.getInstance();
 		
 		System.out.println("s1:"+s1);
 		
-		Singleton s2 = Singleton.GetInstance();
+		Singleton s2 = Singleton.getInstance();
 		
 		System.out.println("s1:"+s1);
 		
