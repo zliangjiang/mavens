@@ -31,6 +31,20 @@ public class TestMain {
 			System.out.println("[" + info.getThreadId() + "]" + info.getThreadName());
 		}
 		
+		int i=0;
+		for ( ; i<15; i++) {
+			new Thread() {
+				public void run() {
+					try {
+						Thread.sleep(6000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					System.out.println("Thread i :" + Thread.currentThread().getId() + "priority:" + Thread.currentThread().getPriority());
+				}
+			}.start();
+		}
 		try {
 			Thread.sleep(6);
 		} catch (InterruptedException e) {
