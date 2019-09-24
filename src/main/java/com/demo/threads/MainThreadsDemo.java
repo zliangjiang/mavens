@@ -1,4 +1,4 @@
-package com.demo.test;
+package com.demo.threads;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
@@ -8,7 +8,7 @@ public class MainThreadsDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Hello World");
+		System.out.println("*********************");
 		ThreadGroup group = Thread.currentThread().getThreadGroup();
 		ThreadGroup topGroup = group;
 		while(group != null) {
@@ -23,6 +23,7 @@ public class MainThreadsDemo {
 			System.out.println("Thread Number:" + i + "=" + lstThreads[i].getName());
 		}
 		
+		System.out.println("*************************");
 		ThreadMXBean mbean = ManagementFactory.getThreadMXBean();
 		long[] threadIds = mbean.getAllThreadIds();
 		ThreadInfo[] threadInfos = mbean.getThreadInfo(threadIds);
