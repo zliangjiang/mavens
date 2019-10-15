@@ -1,24 +1,25 @@
 package com.demo.threads;
 
-/**
- * 通过子程序join使线程按顺序执行
- * @author BlackDragon2
- *
- */
-public class ThreadJoinDemo {
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
+public class ThreadCyclicBarrierDemo {
+	private static CyclicBarrier barrier1 = new CyclicBarrier(2);
+	private static CyclicBarrier barrier2 = new CyclicBarrier(2);
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		final Thread thread1 = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(10000);
+					System.out.println("产品经理规划新需求");
+					barrier1.await();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (BrokenBarrierException e) {
 					e.printStackTrace();
 				}
-				System.out.println("产品经理规划新需求");
 			}
 		});
 		
@@ -26,9 +27,12 @@ public class ThreadJoinDemo {
 			@Override
 			public void run() {
 				try {
-					thread1.join();
+					barrier1.await();
 					System.out.println("开发人员开发新需求功能");
-				} catch(InterruptedException e) {
+					barrier2.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} catch (BrokenBarrierException e) {
 					e.printStackTrace();
 				}
 			}
@@ -38,9 +42,11 @@ public class ThreadJoinDemo {
 			@Override
 			public void run() {
 				try {
-					thread2.join();
+					barrier2.await();
 					System.out.println("测试人员测试新功能");
 				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} catch (BrokenBarrierException e) {
 					e.printStackTrace();
 				}
 			}
