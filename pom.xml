@@ -3,4 +3,13 @@
   <groupId>Demo</groupId>
   <artifactId>com.demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencyManagement>
+  	  <dependencies>
+  	      <dependency>
+    	      <groupId>org.hyperic</groupId>
+    	      <artifactId>sigar</artifactId>
+    	      <version>1.6.4</version>
+  	      </dependency>
+      </dependencies>
+  </dependencyManagement>
 </project>

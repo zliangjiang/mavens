@@ -51,10 +51,10 @@ public class TestMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("list size()"+list.size());
+		System.out.println("list size():"+list.size());
 		System.out.println(Thread.currentThread().getName());
 		int[] array = new int[10];
-		System.out.println("array length"+array.length);
+		System.out.println("array length:"+array.length);
 		
 		String a = "1234";
 		String b = "12" + new String("34");
